@@ -1,0 +1,9 @@
+.footer-section {
+    padding: 5rem;
+    margin-top: 50%;
+    background-color: darkgray;
+    color:white;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
