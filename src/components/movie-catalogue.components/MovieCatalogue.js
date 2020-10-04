@@ -8,6 +8,7 @@ function MovieCatalogue() {
    
     useEffect(() => {
         const movieUrl = 'https://swapi.dev/api/films';
+        // const peopleUrl = ' https://swapi.dev/api/people/';
         const people_apis = [
             "http://swapi.dev/api/people/?page=1",
             "http://swapi.dev/api/people/?page=2",
