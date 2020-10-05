@@ -17,8 +17,7 @@ const DisplayCharacter = ({p}) => {
     )
   }
   
-  const Results = ({p}) => (
-    console.log("person characters: ",p),
+  const Results = ({p}) => {return (
       <div className="movie-character">
                 <h4>{p.name}</h4>
                 <div className="specs">
@@ -44,9 +43,9 @@ const DisplayCharacter = ({p}) => {
                         Hair Color{p.hair_color}
                     </div>
                 </div>
-            </div> 
+        </div> 
    
-  )
+  )}
 
 function Movie({movies, people}) {
     
@@ -85,16 +84,3 @@ function Movie({movies, people}) {
 }
 
 export default Movie; 
-
-// const People = ({people}) => {
-
-//     return (
-//         <>
-//         { 
-//         people.map(spec => {
-//                    console.log(spec.name)
-//             })
-//         }
-//         </>
-//     )
-// }
