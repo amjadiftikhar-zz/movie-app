@@ -2,20 +2,22 @@ import React from 'react';
  
 const CharacterSpecs = ({p}) => {
     return (
+        /** Characters' specification section */
       <div className="characterSpecs">
+                {/* List of Characters' specification */}
                 <div className="specs">
-                    <div className="element"><strong className="label">
-                        Height: </strong>{p.height}</div>
-                    <div className="element"><strong className="label">
-                        Gender: </strong>{p.gender}</div>
-                    <div className="element"><strong className="label">
-                        Mass: </strong>{p.mass}</div>
-                    <div className="element"><strong className="label">
-                        Birth: </strong>{p.birth_year}</div>
-                    <div className="element"><strong className="label">
-                        Color:</strong>{p.eye_color}</div>
-                    <div className="element"><strong className="label">
-                        Hair Color:</strong>{p.hair_color}</div>
+                    <div className="element"><strong className="specLabel">
+                        Height: {p.height}</strong></div>
+                    <div className="element"><strong className="specLabel">
+                        Gender: {p.gender}</strong></div>
+                    <div className="element"><strong className="specLabel">
+                        Mass: {p.mass}</strong></div>
+                    <div className="element"><strong className="specLabel">
+                        Birth: {p.birth_year}</strong></div>
+                    <div className="element"><strong className="specLabel">
+                        Color:{p.eye_color}</strong></div>
+                    <div className="element"><strong className="specLabel">
+                        Hair Color:{p.hair_color}</strong></div>
                 </div>
         </div> 
     )

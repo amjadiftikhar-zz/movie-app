@@ -3,6 +3,7 @@ import DisplayCharacters from "./DisplayCharacters";
 
 function People({people, movie}) {
     return (
+        /** returns list of people */
         <div className="peopleList">
            { people.map((p, i) => {
                     return(                                   

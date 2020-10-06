@@ -10,6 +10,8 @@ function MovieCatalogue() {
     useEffect(() => {
         const movieUrl = 'https://swapi.dev/api/films';
         const peopleUrl = ' https://swapi.dev/api/people/';
+
+        /** fetching movies from films api */
         
         const fetchMovie = async () => {
             await fetch(movieUrl)
@@ -20,6 +22,8 @@ function MovieCatalogue() {
                 .catch(error => console.log(error))
                 .finally(setLoading(false))
         }
+
+        /** fetching movie characters from people api */
 
         const fetchCharacters = async (url) => {
             await fetch(url)
@@ -39,6 +43,7 @@ function MovieCatalogue() {
     }, [])
 
     return (
+        /** Section to show movies from api */
         <div className="filmSection">
             { 
                 loading ? 

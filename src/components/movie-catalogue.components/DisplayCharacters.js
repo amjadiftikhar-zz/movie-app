@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {Component, useState} from 'react';
 import CharacterSpecs from "./CharacterSpecs";
 
 const DisplayCharacters = ({p}) => {
@@ -7,10 +7,11 @@ const DisplayCharacters = ({p}) => {
         e.preventDefault();
         showCharacters ? setShowCharacters(false) : setShowCharacters(true)
     }
-    return (      
+    return (  
+      /** returns CharacterSpecs Component containing specs  */ 
       <div className="characterElement">       
         <a href="" onClick={onClick}> 
-        <h3>{p.name}</h3>
+        <h3 className="characterName">{p.name}</h3>
           { showCharacters ? <CharacterSpecs p={p} /> : null }
         </a>
       </div>

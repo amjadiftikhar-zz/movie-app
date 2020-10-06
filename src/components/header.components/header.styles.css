@@ -1,9 +1,12 @@
-h1 {
+/* header style */
+
+.header {
     text-align: center;
     color: white;
     background-color:  #191919;
     padding: 2rem;
-    /* position: fixed; */
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: fixed;
     width: 100%;
-    margin-bottom: 5rem;
 }
