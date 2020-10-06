@@ -3,7 +3,7 @@ import "./footer.styles.css";
 
 function Footer() {
     return (
-        <div className="footer-section">
+        <div className="footerSection">
             Footer component
         </div>
     )

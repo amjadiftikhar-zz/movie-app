@@ -1,11 +1,89 @@
-.section {
-    margin: 2%;
+/* Film Section  */
+
+.filmSection {
+    margin-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    padding: 2rem;
 }
-h2, h4 {
-    margin-top: 3%;
-    margin-bottom: 2%;
+
+/* h2 for movie title and h3 for characters' name */
+
+h2, h3 {
+    margin-top: 2rem;
+    color:  rgb(16, 16, 68);
+    margin-bottom: 2rem;
+    text-align: center;
 }
-.specs {
+.movieSection > div {
+    margin-bottom: 0.3rem;
+}
+
+/* Labels for movie section and characters' specifications */
+
+.label {
+    color: rgb(16, 16, 68);
+    margin-top: 2rem;
+    margin-right: 0.5rem;
+}
+h3, .label {
+    font-size: 0.8rem;
+}
+
+/* show and hide movie characters */
+
+.displayCharacters { 
+    margin-top: 2rem;
+}
+.characterBtn {
+    display: block;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    background-color: #efd69d;
+    text-align: center;
+    color:  rgb(16, 16, 68);
+    font-weight: bold;
+}
+
+/* styling characters' list */
+
+.peopleList {
+    margin-top: 2rem;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Each element of the character */
+
+.characterElement {
+    width: 12rem;
+    padding: 0.4rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    background-color: #efd69d;
+    border-radius: 1rem;
+}
+
+/* characters' specs class */
+
+.specs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    justify-content: space-between;
+}
+
+/* styling each specs element */
+
+.element {
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    height: 4rem;
+    margin-bottom: 1rem;
+    border-radius: 0.8rem;
+    background-color: white;
 }

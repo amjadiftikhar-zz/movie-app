@@ -1,25 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import "./movie.styles.css";
 import Movie from "./Movie";
-
-// const fetchCharacters = async (peopleApi) => {
-//     // const fetchPeople = async () => {
-//         await people_apis.map(p => {
-//             fetch(p)
-//                 .then(data => data.json())
-//                 .then(peopleItem => {
-//                     setPeople(people => [...people.concat(peopleItem.results)])
-//                 })
-//                 .then(data => {
-//                     if(data.next !== null ) {
-//                         fetchCharacters(data.next)
-//                     }
-//                     }
-//                 )
-//                 .catch(error => console.log(error))
-//                 .finally(setLoading(false))
-//             })
-//     // }
-// }
 
 function MovieCatalogue() {
     const [movies, setMovies] = useState([]);
@@ -29,17 +10,6 @@ function MovieCatalogue() {
     useEffect(() => {
         const movieUrl = 'https://swapi.dev/api/films';
         const peopleUrl = ' https://swapi.dev/api/people/';
-        // const people_apis = [
-        //     "http://swapi.dev/api/people/?page=1",
-        //     "http://swapi.dev/api/people/?page=2",
-        //     "http://swapi.dev/api/people/?page=3",
-        //     "http://swapi.dev/api/people/?page=4",
-        //     "http://swapi.dev/api/people/?page=5",
-        //     "http://swapi.dev/api/people/?page=6",
-        //     "http://swapi.dev/api/people/?page=7",
-        //     "http://swapi.dev/api/people/?page=8",
-        //     "http://swapi.dev/api/people/?page=9"
-        // ];
         
         const fetchMovie = async () => {
             await fetch(movieUrl)
@@ -52,51 +22,26 @@ function MovieCatalogue() {
         }
 
         const fetchCharacters = async (url) => {
-            // const fetchPeople = async () => {
-                 
-                 await fetch(url)
-                        .then(data => data.json())
-                        .then(peopleItem => {
-                            setPeople(people => 
-                                [...people.concat(peopleItem.results)])
-                            if(peopleItem.next !== null ) {
-                                console.log("next api: ", peopleItem.next)
-                                fetchCharacters(peopleItem.next)
-                            }
-                        })
-                        // .then(peopleItem => {
-                        //     console.log("people Item: ", peopleItem)
-                        //     if(peopleItem.next !== null ) {
-                        //         console.log("next api: ", peopleItem.next)
-                        //         fetchCharacters(peopleItem.next)
-                        //     }
-                        //     }
-                        // )
-                        .catch(error => console.log(error))
-                        .finally(setLoading(false))
-                   
-            // }
+            await fetch(url)
+                .then(data => data.json())
+                .then(peopleItem => {
+                    setPeople(people => 
+                        [...people.concat(peopleItem.results)])
+                    if(peopleItem.next !== null ) {
+                        // console.log("next api: ", peopleItem.next)
+                        fetchCharacters(peopleItem.next)
+                    }
+                })
+                .catch(error => console.log(error))
+                .finally(setLoading(false))
         }
-
-        // const fetchPeople = async () => {
-        //     await people_apis.map(p => {
-        //         fetch(p)
-        //             .then(data => data.json())
-        //             .then(peopleItem => {
-        //                 setPeople(people => [...people.concat(peopleItem.results)])
-        //             })
-        //             .catch(error => console.log(error))
-        //             .finally(setLoading(false))
-        //         })
-        // }
         fetchMovie();
         fetchCharacters(peopleUrl);
-        // fetchPeople();
     }, [])
-    console.log(movies)
-    console.log(people)
+    console.log("Movies data = ",movies)
+    console.log("People data = ",people)
     return (
-        <div>
+        <div className="filmSection">
             { 
                 loading ? 
                 (

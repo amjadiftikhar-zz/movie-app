@@ -1,82 +1,55 @@
-import React, {useState, useEffect } from 'react';
+import React, {useState} from 'react';
+import {CardDeck, Card} from 'reactstrap';
+import People from "./People";
 import "./movie.styles.css";
-
-const DisplayCharacter = ({p}) => {
-    const [showCharacters, setShowCharacters] = useState(false)
-    const onClick = (e) => {
-        e.preventDefault();
-        showCharacters ? setShowCharacters(false) : setShowCharacters(true)
-    }
-    return (
-      <div>
-        <a href="" onClick={onClick}> 
-           {p.name} 
-        </a>
-        { showCharacters ? <Results p={p} /> : null }
-      </div>
-    )
-  }
-  
-  const Results = ({p}) => {return (
-      <div className="movie-character">
-                <h4>{p.name}</h4>
-                <div className="specs">
-                    <div className="element">
-                        Name: {p.name}
-                    </div>
-                    <div className="element">
-                        Height: {p.height}
-                    </div>
-                    <div className="element">
-                        Gender: {p.gender}
-                    </div>
-                    <div className="element">
-                        Mass: {p.mass}
-                    </div>
-                    <div className="element">
-                        Birth: {p.birth_year}
-                    </div>
-                    <div className="element">
-                        Eye Color:{p.eye_color}
-                    </div>
-                    <div className="element">
-                        Hair Color{p.hair_color}
-                    </div>
-                </div>
-        </div> 
-   
-  )}
+import moment from 'moment';
 
 function Movie({movies, people}) {
-    
+    const [characters, setCharacters] = useState(false)
+    const [isToggled, setToggled] = useState(false);
+
+    const toggleTrueFalse = () => setToggled(!isToggled);
+
+    const onClick = (e) => {
+        e.preventDefault();
+        characters ? setCharacters(false) : setCharacters(true)
+    }
+
     return (
         <>
         { movies.map((movie, index) => {
-                return ( 
-                    <div className="section" key={index}>
-                        <h2>{movie.title}</h2>
-                        <div> <strong>Director:</strong>{movie.director}</div>
-                        <div> <strong>Created:</strong> {movie.created}</div>
-                        <div><strong>Episode:</strong>{movie.episode_id}</div>
-                        <div><strong>Description:</strong> 
-                            <p>{movie.opening_crawl}</p>
-                        </div>
-                        {(
-                        people.map((p, i) => {
-                            return(                                   
-                                p.films.map(element => {                                 
-                                    if(movie.url === element) {
-                                    return ( 
-                                    <div key={i}> 
-                                        <DisplayCharacter p={p}/>
-                                    </div> ) 
+            return ( 
+                    <Card className="card" key={index} style={{
+                        width:"30rem", marginBottom:"2rem", 
+                        borderRadius:"2rem", backgroundColor:"#e0c56e", 
+                        borderColor:"red", padding:"1.5rem"
+                        }}>
+                        <div key={index} className="movieSection"  >
+                            <h2>{movie.title}</h2>                            
+                            <div><p>{movie.opening_crawl}</p>
+                            </div>
+                            <div> <strong className="label">Director:</strong>
+                                {movie.director}</div>
+                            <div> <strong className="label">Released:</strong> 
+                                {moment(movie.created).format('LLLL')}</div>
+                            <div><strong className="label">Episode:</strong>
+                                {movie.episode_id}</div>
+                            <div onClick={toggleTrueFalse} key={index} 
+                                className="displayCharacters">
+                                <a key={index} href="" className="characterBtn"
+                                    onClick={onClick}> 
+                                    {isToggled ? "Hide Characters" 
+                                        : "Movie Characters" 
                                     } 
-                                })                            
-                            )
-                        }))
-                        }
-                    </div>
-                )
+                                </a>
+                                {
+                                characters ? 
+                                    <People people={people} movie={movie}/> : null
+                                }
+                            </div>  
+                        </div> 
+                    </Card> 
+            )
             })
         }
         </>

@@ -1,13 +1,25 @@
 import React from 'react';
+import DisplayCharacters from "./DisplayCharacters";
 
-function People({people}) {
+function People({people, movie}) {
     return (
-        <div>
-            {people.map((p, index) => {
-                return ( <a href=""> <li key={index}>{p.name} </li> </a>)
-            })}
+        <div className="peopleList">
+           { people.map((p, i) => {
+                    return(                                   
+                        p.films.map(element => {                                 
+                            if(movie.url === element) {
+                            return (  
+                            <div key={i}> 
+                                <DisplayCharacters p={p}/>
+                            </div>                             
+                            ) 
+                            } 
+                        }) 
+                    )
+                })
+            }
         </div>
     )
 }
 
-export default People
+export default People;

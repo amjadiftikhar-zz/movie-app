@@ -1,7 +1,8 @@
-.footer-section {
+.footerSection {
+    width: 100%;
     padding: 5rem;
     margin-top: 50%;
-    background-color: darkgray;
+    background-color: rgb(16, 16, 68);
     color:white;
     text-align: center;
     font-size: 2rem;

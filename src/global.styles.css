@@ -6,7 +6,8 @@
     outline: 0; 
     border: 0;
     box-sizing: border-box; 
-    letter-spacing: 0.1rem;   
+    letter-spacing: 0.2rem;
+    line-height: 1.5rem;   
   }
   *:focus {
     outline: 0;
@@ -17,7 +18,7 @@
   }
   body {
     -webkit-font-smoothing: antialiased;
-    background: lightgray;
+    background: rgb(253, 240, 240);
   }
   body, input, button {
     font: 14px 'Roboto', sans-serif;
