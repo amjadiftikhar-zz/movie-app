@@ -28,7 +28,6 @@ function MovieCatalogue() {
                     setPeople(people => 
                         [...people.concat(peopleItem.results)])
                     if(peopleItem.next !== null ) {
-                        // console.log("next api: ", peopleItem.next)
                         fetchCharacters(peopleItem.next)
                     }
                 })
@@ -38,8 +37,7 @@ function MovieCatalogue() {
         fetchMovie();
         fetchCharacters(peopleUrl);
     }, [])
-    console.log("Movies data = ",movies)
-    console.log("People data = ",people)
+
     return (
         <div className="filmSection">
             { 
@@ -47,7 +45,9 @@ function MovieCatalogue() {
                 (
                 <p>fetching data....</p> 
                 ) : (
-                <Movie movies={movies} people={people}/> 
+                movies.map((m, index) => {
+                    return <Movie key={index} movie={m} people={people}/> 
+                })
                 )
             }
         </div>

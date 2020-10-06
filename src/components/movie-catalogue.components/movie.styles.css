@@ -17,6 +17,11 @@ h2, h3 {
     margin-bottom: 2rem;
     text-align: center;
 }
+.movieTitle {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+}
 .movieSection > div {
     margin-bottom: 0.3rem;
 }
@@ -54,6 +59,7 @@ h3, .label {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    transition-timing-function: ease-in;
 }
 
 /* Each element of the character */
@@ -65,7 +71,13 @@ h3, .label {
     text-align: center;
     background-color: #efd69d;
     border-radius: 1rem;
+    transition: 5s;
 }
+@media only screen and (max-width: 400px) {
+    .characterElement {
+        width: 16rem;
+    }
+  }
 
 /* characters' specs class */
 
