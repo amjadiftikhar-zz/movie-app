@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {useState} from 'react';
 import {Card} from 'reactstrap';
 import People from "./People";
 import "./movie.styles.css";
